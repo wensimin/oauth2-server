@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.0.200:5432/oauth2-server
+    username: postgres
+    password: 753951anna
+  jpa:
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
+        hbm2ddl:
+          auto: update
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: 192.168.0.200
+    port: 6379
+    password: 753951anna
+    database: 1
+
+auth:
+  # 这里将扩展为多id多权限模式
+  client: client
+  secret: secret
+
+logging:
+  level:
+    root: '${log:warn}'
+    tech:
+      shali: '${app-log:debug}'
+  file: log/log.log
+
+server:
+  context-path: '${context-path:/}'
+  port: '${port:80}'
+  tomcat:
+    uri-encoding: UTF-8
